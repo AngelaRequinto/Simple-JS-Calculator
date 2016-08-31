@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Simple Calculator</title>
+        <link rel="stylesheet" type="text/css" href="calcustyle.css">
+        
+        <br/><br/><center><h1>Simple Calculator</h1>
+                <h4>By: Angela Requinto</h4>
+        </center>
+    </head>
+    <body>
+    
+    <center>
+        <FORM name="Keypad" action="">
+           
+             <textarea name="result"id="result" type="text " size="100" value="0" readonly></textarea>
+   
+            <table>
+                <tr>
+                    <td><input id="btn7" type="Button" value="  7  " onclick="NumPressed(7)"></td>
+                    <td><input id="btn8" type="Button" value="  8  " onclick="NumPressed(8)"></td>        
+                    <td><input id="btn9" type="Button" value="  9  " onclick="NumPressed(9)"></td>
+                    <td><input id="btnC" type="Button" value="  C  " onclick="Clear()"></td>
+                    <td><input id="btndecimal" type="Button" value="   .  " onclick="Decimal()"> </td> 
+
+
+                </tr>
+                <tr>
+                    <td><input id="btn4" type="Button" value="  4  " onclick="NumPressed(4)"></td>
+                    <td><input id="btn5" type="Button" value="  5  " onclick="NumPressed(5)"></td>        
+                    <td><input id="btn6" type="Button" value="  6  " onclick="NumPressed(6)"></td>
+                    <td><input id="btndivide" type="Button" value=" / " onclick="Operation('/')"></td>
+                    <td><input id="btnplus" type="Button" value=" + " onclick="Operation('+')"></td>
+                </tr>
+                <tr>
+                    <td><input id="btn1" type="Button" value="  1  " onclick="NumPressed(1)"></td>
+                    <td><input id="btn2" type="Button" value="  2  " onclick="NumPressed(2)"></td>        
+                    <td><input id="btn3" type="Button" value="  3  " onclick="NumPressed(3)"></td>
+                    <td><input id="btnmultiply" type="Button" value="  *  " onclick="Operation('*')"></td>
+                    <td><input id="btnminus" type="Button" value="   -   " onclick="Operation('-')"></td>
+                </tr>
+            </table>
+            
+               <tr>
+                   <td><input id="btn0" type="Button" value="  0  " onclick="NumPressed(0)"></td>
+                   <td><input id="btnExp" type="Button" value="Exp" onclick="DoExponent()"></td>    
+                   <td><input id="btnplusminus" type="Button" value=" +/- " onclick="Neg()"></td>
+                   <td><input id="btnequals" type="Button" value="  =  " onclick="Operation('=')"></td>
+              </tr>
+            
+        </FORM>
+        
+        <script>
+            var FKeyPad = document.Keypad;
+            var Accumulate = 0;
+            var FlagNewNum = false;
+            var PendingOp = "";
+            function NumPressed (Num) {
+                if (FlagNewNum) {
+                    FKeyPad.result.value  = Num;
+                    FlagNewNum = false;
+                }
+                else {
+                    if (FKeyPad.result.value == "0")
+                        FKeyPad.result.value = Num;
+                    else
+                        FKeyPad.result.value += Num;
+                }
+            }
+            function Operation (Op) {
+                var Readout = FKeyPad.result.value;
+                if (FlagNewNum && PendingOp != "=");
+                else
+                {
+                    FlagNewNum = true;
+                    if ( '+' == PendingOp )
+                        Accumulate += parseFloat(Readout);
+                    else if ( '-' == PendingOp )
+                        Accumulate -= parseFloat(Readout);
+                    else if ( '/' == PendingOp )
+                        Accumulate /= parseFloat(Readout);
+                    else if ( '*' == PendingOp )
+                        Accumulate *= parseFloat(Readout);
+                    else
+                        Accumulate = parseFloat(Readout);
+                    FKeyPad.result.value = Accumulate;
+                    PendingOp = Op;
+                }
+            }
+            function Decimal () {
+                var curresult = FKeyPad.result.value;
+                if (FlagNewNum) {
+                    curresult = "0.";
+                    FlagNewNum = false;
+                }
+                else
+                {
+                    if (curresult.indexOf(".") == -1)
+                        curresult += ".";
+                }
+                FKeyPad.result.value = curresult;
+            }
+            function ClearEntry () {
+                FKeyPad.result.value = "0";
+                FlagNewNum = true;
+            }
+            function Clear () {
+                Accumulate = 0;
+                PendingOp = "";
+                ClearEntry();
+            }
+            function Neg () {
+                FKeyPad.result.value = parseFloat(FKeyPad.result.value) * -1;
+            }
+            function Percent () {
+                FKeyPad.result.value = (parseFloat(FKeyPad.result.value) / 100) * parseFloat(Accumulate);
+            }
+            function DoExponent(){
+  
+              if ( Current.indexOf("e") == -1 )
+                 { Current = Current + "e0";
+                 document.result.value = Current;};
+
+           }
+        </script>
+        </center>
+    </body>
+</html>
