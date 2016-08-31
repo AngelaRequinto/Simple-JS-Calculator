@@ -1,0 +1,75 @@
+form{
+
+background-color:#202020;
+text-align: center;
+width: 320px;
+margin: 250px;
+height: 490px;
+padding-top: 60px;
+margin-left: 200px;
+margin-right: 300px;
+margin-top: 150px;
+margin-bottom: 150px;
+
+}
+table{
+    height: 150px;
+    width:220px;
+    margin-top: 40px;
+    margin-left: 40px;
+    margin-right: 200px;
+    margin-bottom: 40px;
+    border-radius: 20px;
+    border-color: black;
+}
+           
+input{
+    height: 40px;
+    width:40px;
+    padding: 10px;
+    margin-top: 5px;
+    margin-left: 2px;
+    margin-right: 5px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    border-color: black;
+    background-color: white;
+ 
+}
+#btn0,#btndecimal,#btnplusminus,#btnequals{
+
+    height: 40px;
+    width:40px;
+    padding: 2px;
+    margin-top: 0px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 30px;
+    border-radius: 20px;
+    border-color: black;
+ 
+}
+}
+ #result{
+    
+
+   
+    text-align: right;
+    border-color: black;
+    background-color: white;
+ }
+ #btnequals{
+    background-color:blue;
+ }
+ #btnC{
+    background-color: red;
+ }
+ #btnplusminus{
+    background-color: yellow;
+ }
+ #btnExp{
+    background-color: yellow;
+ }
+ #btndivide,#btnplus,#btnmultiply,#btnminus,#btndecimal{
+    background-color: aqua;
+ }
