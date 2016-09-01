@@ -62,10 +62,4 @@ var FKeyPad = document.Keypad;
              function Percent () {
                  FKeyPad.result.value = (parseFloat(FKeyPad.result.value) / 100) * parseFloat(Accumulate);
              }
-             function DoExponent(){
-   
-               if ( Current.indexOf("e") == -1 )
-                  { Current = Current + "e0";
-                  document.result.value = Current;};
- 
-            }
+           
